@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Opiskelijaravintolat</title>
+    <script src="leaflet.js" defer></script>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+
+
+  </head>
+
+  <body>
+    <header role="banner" class="header">
+      <nav>
+        <div class="logo">
+          <a href="etusivu.html"><img src=" " alt="Logo"></a>
+        </div>
+        <div class="header-title">
+          <h1>OPISKELIJARAVINTOLAT</h1>
+        </div>
+        <div class="auth-buttons">
+          <button onclick="location.href='signin.html'">Sign In</button>
+          <button onclick="location.href='register.html'">Register</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="content">
+        <section class="left-side">
+          <h2>Valitse Ravintola</h2>
+          <ul>
+            <li><a href="#">Ravintola 1</a></li>
+            <li><a href="#">Ravintola 2</a></li>
+            <li><a href="#">Ravintola 3</a></li>
+          </ul>
+        </section>
+        <section class="right-side">
+          <h2>Kartta</h2>
+          <div id="map">
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <hr>
+      author: Jarmo </br>
+      &copy; 2025 kikkelis kokkelis</br>
+      <small><a href="mailto:jarmoil@metropolia.fi">jarmoil@metropolia.fi</a></small>
+    </footer>
+  </body>
+</html>

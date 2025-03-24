@@ -1,0 +1,171 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%; /* Ensure the body takes the full height of the viewport */
+}
+
+header {
+  background-color: #004080;
+  color: white;
+  padding: 2vh 2vw; /* Use viewport-based units for padding */
+  display: flex;
+  align-items: center;
+}
+
+.logo{
+  width: 100px;
+  flex: 0 0 auto;
+}
+
+.logo img{
+  height: 50px;
+}
+
+.header-title {
+  flex: 1;
+  text-align: center;
+}
+
+.header-title h1 {
+  margin: 0;
+  font-size: 24px;
+  text-align: center;
+}
+
+.auth-buttons {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 10px;
+}
+
+.auth-buttons button {
+  background-color: #0073e6;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.auth-buttons button:hover {
+  background-color: #005bb5;
+}
+
+nav{
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  padding: 2vh 2vw;
+  height: calc(100vh - 120px); /* Adjust height dynamically based on header/footer */
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  gap: 2vw; /* Use viewport-based spacing */
+}
+
+.left-side, .right-side {
+  flex: 1; /* Ensure both sections take equal width */
+  padding: 2vh 2vw;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 0;
+  overflow-y: auto; /* Add scroll if content overflows */
+}
+
+.left-side {
+  background-color: #f9f9f9;
+}
+
+.right-side {
+  background-color: #ffffff;
+}
+
+.left-side h2, .right-side h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.left-side ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.left-side ul li {
+  margin: 10px 0;
+}
+
+.left-side ul li a {
+  text-decoration: none;
+  color: #0073e6;
+}
+
+.left-side ul li a:hover {
+  text-decoration: underline;
+}
+
+#map {
+  width: 100%;
+  height: 100%; /* Make the map fill its container */
+  background-color: #e0e0e0;
+  border: 1px solid #ccc;
+}
+
+footer {
+  text-align: center;
+  padding: 1vh 2vw;
+  background-color: #f1f1f1;
+  font-size: 1.2vh; /* Adjust font size based on viewport height */
+  color: #555;
+}
+
+footer a {
+  color: #0073e6;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column; /* Stack sections vertically on small screens */
+    height: auto; /* Allow height to adjust naturally */
+  }
+
+  .content {
+    flex-direction: column;
+    gap: 2vh; /* Vertical spacing for stacked sections */
+  }
+
+  .left-side, .right-side {
+    flex: none; /* Reset flex to allow natural sizing */
+    height: auto; /* Allow height to adjust naturally */
+  }
+
+  #map {
+    height: 300px; /* Set a fixed height for the map on small screens */
+  }
+}
