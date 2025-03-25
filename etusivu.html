@@ -9,6 +9,7 @@
     <link href="style.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <script src="apiFetchData.js" type="module"></script>
 
 
   </head>
@@ -33,11 +34,18 @@
       <div class="content">
         <section class="left-side">
           <h2>Valitse Ravintola</h2>
-          <ul>
-            <li><a href="#">Ravintola 1</a></li>
-            <li><a href="#">Ravintola 2</a></li>
-            <li><a href="#">Ravintola 3</a></li>
-          </ul>
+          <table id="target">
+            <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>City</th>
+            </tr>
+            <!-- add restaurants here -->
+          </table>
+          <!-- modal -->
+          <dialog id="modal">
+            <!-- add restaurant info here when restaurant is clicked  -->
+          </dialog>
         </section>
         <section class="right-side">
           <h2>Kartta</h2>
@@ -49,7 +57,7 @@
 
     <footer class="footer">
       <hr>
-      author: Jarmo </br>
+      author: Jarmo</br>
       &copy; 2025 kikkelis kokkelis</br>
       <small><a href="mailto:jarmoil@metropolia.fi">jarmoil@metropolia.fi</a></small>
     </footer>
