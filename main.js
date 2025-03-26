@@ -156,12 +156,18 @@ function createTable() {
     taulukko.append(tr);
   }
 }
+// haetaan ravintoloiden koordinaatit
+function getCoordinates(data) {
+  return data.map(item => item.location.coordinates);
+}
 
 async function main() {
   try {
     await getRestaurants();
     sortRestaurants();
     createTable();
+    const coordinates = getCoordinates(restaurants);
+    console.log(coordinates);
   } catch (error) {
     console.error(error);
   }

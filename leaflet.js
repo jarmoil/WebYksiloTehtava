@@ -5,14 +5,8 @@ const options = {
 };
 
 // A function that is called when location information is retrieved
-function success(pos) {
+async function success(pos) {
   const crd = pos.coords;
-
-  // Printing location information to the console
-  console.log('Your current position is:');
-  console.log(`Latitude : ${crd.latitude}`);
-  console.log(`Longitude: ${crd.longitude}`);
-  console.log(`More or less ${crd.accuracy} meters.`);
 
   // Use the leaflet.js library to show the location on the map (https://leafletjs.com/)
   const map = L.map('map').setView([crd.latitude, crd.longitude], 13);
@@ -20,9 +14,43 @@ function success(pos) {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   }).addTo(map);
 
+  // Add a marker for the user's location
   L.marker([crd.latitude, crd.longitude]).addTo(map)
-  .bindPopup('I am here.')
-  .openPopup();
+    .bindPopup('I am here.')
+    .openPopup();
+
+    var circle = L.circle([crd.latitude, crd.longitude], {
+      color: 'red',
+      fillColor: '#f03',
+      fillOpacity: 0.5,
+      radius: 500
+  }).addTo(map);
+
+  // Fetch restaurant data
+  const response = await fetch('https://media2.edu.metropolia.fi/restaurant/api/v1/restaurants');
+  const restaurants = await response.json();
+
+  // Add markers for all restaurants
+  restaurants.forEach(restaurant => {
+    const [longitude, latitude] = restaurant.location.coordinates;
+    const marker = L.marker([latitude, longitude]).addTo(map)
+      .bindPopup(`<strong>${restaurant.name}</strong><br>${restaurant.address}, ${restaurant.city}`);
+
+    // Add click event to highlight the corresponding restaurant in the table
+    marker.on('click', () => {
+      // Remove highlight from all rows
+      document.querySelectorAll('#target tr').forEach(row => row.classList.remove('highlight'));
+
+      // Find the corresponding row in the table
+      const rows = document.querySelectorAll('#target tr');
+      rows.forEach(row => {
+        if (row.querySelector('td') && row.querySelector('td').innerText === restaurant.name) {
+          row.classList.add('highlight'); // Add highlight class
+          row.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Scroll to the row
+        }
+      });
+    });
+  });
 }
 
 // Function to be called if an error occurs while retrieving location information
