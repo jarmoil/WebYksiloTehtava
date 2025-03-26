@@ -12,7 +12,7 @@ body {
 
 html, body {
   height: 100%;
-  background: url('/lib/plain-smooth-green-wall-texture.jpg') repeat;
+  background: url('lib/plain-smooth-green-wall-texture.jpg') repeat;
 }
 
 header {
