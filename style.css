@@ -29,6 +29,7 @@ header {
 
 .logo img{
   height: 50px;
+  border-radius: 15px;
 }
 
 .header-title {
