@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Opiskelijaravintolat</title>
+    <script src="main.js" type="module"></script>
     <script src="leaflet.js" defer></script>
     <link href="css/style.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" rel="stylesheet">
@@ -31,14 +32,24 @@
 
     <main>
       <div class="content">
+
         <section class="left-side">
           <h2>Valitse Ravintola</h2>
-          <ul>
-            <li><a href="#">Ravintola 1</a></li>
-            <li><a href="#">Ravintola 2</a></li>
-            <li><a href="#">Ravintola 3</a></li>
-          </ul>
+
+          <table id="target">
+            <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>City</th>
+            </tr>
+            <!-- add restaurants here -->
+          </table>
+          <!-- modal -->
+          <dialog id="modal">
+            <!-- add restaurant info here when restaurant is clicked -->
+          </dialog>
         </section>
+
         <section class="right-side">
           <h2>Kartta</h2>
           <div id="map">
