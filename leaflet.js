@@ -31,8 +31,23 @@ async function success(pos) {
   const restaurants = await response.json();
 
   // Add markers for all restaurants
+  let closestMarker = null;
+  let minDistance = Infinity;
+
   restaurants.forEach(restaurant => {
     const [longitude, latitude] = restaurant.location.coordinates;
+
+    // Calculate distance to the user's location
+    const distance = Math.sqrt(
+      Math.pow(latitude - crd.latitude, 2) + Math.pow(longitude - crd.longitude, 2)
+    );
+
+    // Check if this restaurant is the closest
+    if (distance < minDistance) {
+      minDistance = distance;
+      closestMarker = { latitude, longitude, name: restaurant.name };
+    }
+
     const marker = L.marker([latitude, longitude]).addTo(map)
       .bindPopup(`<strong>${restaurant.name}</strong><br>${restaurant.address}, ${restaurant.city}`);
 
@@ -51,6 +66,14 @@ async function success(pos) {
       });
     });
   });
+
+  // Highlight the closest restaurant marker
+  if (closestMarker) {
+    const closestPopup = L.popup()
+      .setLatLng([closestMarker.latitude, closestMarker.longitude])
+      .setContent(`<strong>Closest Restaurant:</strong><br>${closestMarker.name}`)
+      .openOn(map);
+  }
 }
 
 // Function to be called if an error occurs while retrieving location information
