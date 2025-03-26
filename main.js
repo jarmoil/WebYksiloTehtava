@@ -5,6 +5,14 @@ const apiUrl = 'https://media2.edu.metropolia.fi/restaurant/api/v1';
 const taulukko = document.querySelector('#target');
 const modal = document.querySelector('#modal');
 let restaurants = [];
+let menuType = 'daily';
+
+document.querySelector('.dailybtn').addEventListener('click', () => {
+  menuType = 'daily';
+});
+document.querySelector('.weeklybtn').addEventListener('click', () => {
+  menuType = 'weekly';
+});
 
 // html funktiot
 function createRestaurantCells(restaurant, tr) {
@@ -29,7 +37,6 @@ function createModalHtml(restaurant, modal) {
 }
 
 function createMenuHtml(courses) {
-  console.log(courses);
   let html = '';
   for (const course of courses) {
     html += `
@@ -39,6 +46,33 @@ function createMenuHtml(courses) {
         Allergeenit: ${course.diets}</p>
     </article>
   `;
+  }
+  return html;
+}
+
+function createWeeklyMenuHtml(days) {
+  if (!Array.isArray(days)) {
+    return '<p>No weekly menu available.</p>';
+  }
+
+  let html = '';
+  for (const day of days) {
+    if (day.courses && Array.isArray(day.courses)) {
+      html += `
+      <article class="date">
+        <p><strong>${day.date || 'Unknown date'}</strong></p>
+      `;
+      for (const course of day.courses) {
+        html += `
+        <article class="course">
+          <p><strong>${course.name}</strong>,
+          Hinta: ${course.price},
+          Allergeenit: ${course.diets}</p>
+        </article>
+        `;
+      }
+      html += '</article>';
+    }
   }
   return html;
 }
@@ -56,6 +90,15 @@ async function getRestaurants() {
 async function getDailyMenu(id, lang) {
   try {
     return await fetchData(`${apiUrl}/restaurants/daily/${id}/${lang}`);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// hae tietyn ravintolan viikon menu
+async function getWeeklyMenu(id, lang) {
+  try {
+    return await fetchData(`${apiUrl}/restaurants/weekly/${id}/${lang}`);
   } catch (error) {
     console.error(error);
   }
@@ -79,18 +122,24 @@ function createTable() {
         }
 
         tr.classList.add('highlight');
-        // hae menu
-        const coursesResponse = await getDailyMenu(restaurant._id, 'fi');
-        // hae menu html
-        const menuHtml = createMenuHtml(coursesResponse.courses);
 
-        // tyhjennä modal
+        let coursesResponse;
+        if (menuType === 'daily') {
+          coursesResponse = await getDailyMenu(restaurant._id, 'fi');
+        } else {
+          coursesResponse = await getWeeklyMenu(restaurant._id, 'fi');
+        }
+
+        // HTML menu luonti viikolle tai päivälle
+        const menuHtml =
+          menuType === 'daily'
+            ? createMenuHtml(coursesResponse.courses)
+            : createWeeklyMenuHtml(coursesResponse.days); // Pass 'days' for weekly menu
+
+        // tyhjennetään ja populoidaan html
         modal.innerHTML = '';
-        // avaa modal
         modal.showModal();
-        // tee modalin sisältö
         createModalHtml(restaurant, modal);
-        // lisää menu html
         modal.insertAdjacentHTML('beforeend', menuHtml);
       } catch (error) {
         console.error(error);
