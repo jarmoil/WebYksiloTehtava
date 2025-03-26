@@ -65,7 +65,7 @@ function createWeeklyMenuHtml(days) {
     if (day.courses && Array.isArray(day.courses)) {
       html += `
       <article class="date">
-        <p><strong>${day.date || 'Unknown date'}</strong></p>
+        <h4><strong>${day.date || 'Unknown date'}</strong></h4>
       `;
       for (const course of day.courses) {
         html += `

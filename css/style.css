@@ -157,8 +157,11 @@ td {
 h3 {
   font-size:xx-large;
 }
-.date p {
-  font-size: larger;
+
+
+h4 {
+  font-size: 20px;
+  text-decoration: underline;
 }
 
 .course p {
