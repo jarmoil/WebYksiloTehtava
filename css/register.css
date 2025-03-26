@@ -22,7 +22,7 @@ section{
 header {
   background-color: #004080;
   color: white;
-  padding: 2vh 2vw; /* Use viewport-based units for padding */
+  padding: 2vh 2vw;
   display: flex;
   align-items: center;
 }
