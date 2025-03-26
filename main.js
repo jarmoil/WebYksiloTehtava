@@ -167,7 +167,6 @@ async function main() {
     sortRestaurants();
     createTable();
     const coordinates = getCoordinates(restaurants);
-    console.log(coordinates);
   } catch (error) {
     console.error(error);
   }
