@@ -9,9 +9,14 @@ let menuType = 'daily';
 
 document.querySelector('.dailybtn').addEventListener('click', () => {
   menuType = 'daily';
+  document.querySelector('.dailybtn').classList.add('active');
+  document.querySelector('.weeklybtn').classList.remove('active');
 });
+
 document.querySelector('.weeklybtn').addEventListener('click', () => {
   menuType = 'weekly';
+  document.querySelector('.weeklybtn').classList.add('active');
+  document.querySelector('.dailybtn').classList.remove('active');
 });
 
 // html funktiot

@@ -129,8 +129,11 @@ td {
 }
 
 .left-side h2, .right-side h2 {
-  font-size: 20px;
+  font-size: 35px;
+  text-decoration: underline;
   margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
 }
 
 .left-side ul {
@@ -206,4 +209,31 @@ footer a:hover {
   #map {
     height: 300px; /* Set a fixed height for the map on small screens */
   }
+}
+
+.menu-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.menu-buttons button {
+  font-size: 18px;
+  padding: 15px 25px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background-color: #0073e6;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu-buttons button:hover {
+  background-color: #003f7f;
+}
+
+.menu-buttons button.active {
+  background-color: #003f7f;
+  border-color: #003f7f;
 }
