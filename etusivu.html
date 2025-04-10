@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Opiskelijaravintolat</title>
     <script src="main.js" type="module"></script>
     <script src="leaflet.js" defer></script>
-    <link href="style.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css"
+      rel="stylesheet"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
-
-
   </head>
 
   <body>
     <header class="header">
       <nav>
         <div class="logo">
-          <a href="etusivu.html"><img src="lib/logo.png" alt="Logo"></a>
+          <a href="etusivu.html"><img src="lib/logo.png" alt="Logo" /></a>
         </div>
         <div class="header-title">
           <h1>OPISKELIJARAVINTOLAT</h1>
@@ -32,12 +33,14 @@
 
     <main>
       <div class="content">
-
         <section class="left-side">
           <h2>Restaurants</h2>
           <div class="menu-buttons">
             <button type="submit" class="dailybtn">Daily menu</button>
             <button type="submit" class="weeklybtn">Weekly menu</button>
+          </div>
+          <div class="search-menu">
+            <input type="search" placeholder="Search" />
           </div>
           <table id="target">
             <tr>
@@ -51,22 +54,21 @@
           <dialog id="modal">
             <!-- add restaurant info here when restaurant is clicked -->
           </dialog>
-
         </section>
 
         <section class="right-side">
           <h2>Map</h2>
-          <div id="map">
-          </div>
+          <div id="map"></div>
         </section>
       </div>
     </main>
 
     <footer class="footer">
-      <hr>
-      author: Jarmo
-      &copy; 2025 kikkelis kokkelis
-      <small><a href="mailto:jarmoil@metropolia.fi">jarmoil@metropolia.fi</a></small>
+      <hr />
+      author: Jarmo &copy; 2025 kikkelis kokkelis
+      <small
+        ><a href="mailto:jarmoil@metropolia.fi">jarmoil@metropolia.fi</a></small
+      >
     </footer>
   </body>
 </html>
