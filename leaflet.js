@@ -91,7 +91,7 @@ async function success(pos) {
           L.popup()
             .setLatLng([latitude, longitude])
             .setContent(
-              `<strong>${restaurant.name}</strong><br>${restaurant.address}, ${restaurant.city}`
+              `<strong>${restaurant.name}</strong><br>${restaurant.address}, ${restaurant.city}<br>Etäisyys: ${(distance * 111).toFixed(2)} km`
             )
             .openOn(map);
         });
