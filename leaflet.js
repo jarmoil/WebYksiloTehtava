@@ -56,7 +56,7 @@ async function success(pos) {
     const marker = L.marker([latitude, longitude])
       .addTo(map)
       .bindPopup(
-        `<strong>${restaurant.name}</strong><br>${restaurant.address}, ${restaurant.city}`
+        `<strong>${restaurant.name}</strong><br>${restaurant.address}, ${restaurant.city}<br>Etäisyys: ${(distance * 111).toFixed(2)} km`
       );
 
     // Add click event to highlight the corresponding restaurant in the table
@@ -104,7 +104,7 @@ async function success(pos) {
     const closestPopup = L.popup()
       .setLatLng([closestMarker.latitude, closestMarker.longitude])
       .setContent(
-        `<strong>Closest Restaurant:</strong><br>${closestMarker.name}`
+        `<strong>Closest Restaurant:</strong><br>${closestMarker.name}<br>Etäisyys: ${(minDistance * 111).toFixed(2)} km`
       )
       .openOn(map);
   }
