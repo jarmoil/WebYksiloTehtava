@@ -19,6 +19,24 @@ document.querySelector('.weeklybtn').addEventListener('click', () => {
   document.querySelector('.dailybtn').classList.remove('active');
 });
 
+// Ravintoloiden filtteröinti (search)
+document.getElementById('restaurantSearch').addEventListener('input', function () {
+  const query = this.value.toLowerCase();
+  const rows = document.querySelectorAll('#target tr:not(:first-child)'); // Exclude header row
+
+  rows.forEach(row => {
+    const name = row.cells[0]?.innerText.toLowerCase() || '';
+    const address = row.cells[1]?.innerText.toLowerCase() || '';
+    const city = row.cells[2]?.innerText.toLowerCase() || '';
+
+    if (name.includes(query) || address.includes(query) || city.includes(query)) {
+      row.style.display = ''; // Show row
+    } else {
+      row.style.display = 'none'; // Hide row
+    }
+  });
+});
+
 // html funktiot
 function createRestaurantCells(restaurant, tr) {
   // nimisolu
@@ -34,11 +52,25 @@ function createRestaurantCells(restaurant, tr) {
 }
 
 function createModalHtml(restaurant, modal) {
+  // Clear existing modal content
+  modal.innerHTML = '';
+
+  // Create close button
+  const closeButton = document.createElement('button');
+  closeButton.innerText = 'X';
+  closeButton.classList.add('close-modal');
+  closeButton.addEventListener('click', () => {
+    modal.close();
+  });
+
+  // Create restaurant details
   const nameH3 = document.createElement('h3');
   nameH3.innerText = restaurant.name;
   const addressP = document.createElement('p');
   addressP.innerText = `${restaurant.address}, puhelin: ${restaurant.phone}`;
-  modal.append(nameH3, addressP);
+
+  // Append elements to modal
+  modal.append(closeButton, nameH3, addressP);
 }
 
 function createMenuHtml(courses) {
