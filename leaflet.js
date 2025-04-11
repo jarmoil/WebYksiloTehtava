@@ -69,10 +69,8 @@ async function success(pos) {
       // Find the corresponding row in the table
       const rows = document.querySelectorAll('#target tr');
       rows.forEach((row) => {
-        if (
-          row.querySelector('td') &&
-          row.querySelector('td').innerText === restaurant.name
-        ) {
+        const rowName = row.querySelector('td')?.innerText.trim().toLowerCase();
+        if (rowName === restaurant.name.trim().toLowerCase()) {
           row.classList.add('highlight'); // Add highlight class
           row.scrollIntoView({behavior: 'smooth', block: 'center'}); // Scroll to the row
         }
@@ -82,10 +80,8 @@ async function success(pos) {
     // Add click event to the restaurant row in the menu
     const rows = document.querySelectorAll('#target tr');
     rows.forEach((row) => {
-      if (
-        row.querySelector('td') &&
-        row.querySelector('td').innerText === restaurant.name
-      ) {
+      const rowName = row.querySelector('td')?.innerText.trim().toLowerCase();
+      if (rowName === restaurant.name.trim().toLowerCase()) {
         row.addEventListener('click', () => {
           map.setView([latitude, longitude], 15); // Pan the map to the restaurant's location
           L.popup()
