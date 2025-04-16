@@ -20,22 +20,28 @@ document.querySelector('.weeklybtn').addEventListener('click', () => {
 });
 
 // Ravintoloiden filtteröinti (search)
-document.getElementById('restaurantSearch').addEventListener('input', function () {
-  const query = this.value.toLowerCase();
-  const rows = document.querySelectorAll('#target tr:not(:first-child)'); // Exclude header row
+document
+  .getElementById('restaurantSearch')
+  .addEventListener('input', function () {
+    const query = this.value.toLowerCase();
+    const rows = document.querySelectorAll('#target tr:not(:first-child)'); // Exclude header row
 
-  rows.forEach(row => {
-    const name = row.cells[0]?.innerText.toLowerCase() || '';
-    const address = row.cells[1]?.innerText.toLowerCase() || '';
-    const city = row.cells[2]?.innerText.toLowerCase() || '';
+    rows.forEach((row) => {
+      const name = row.cells[0]?.innerText.toLowerCase() || '';
+      const address = row.cells[1]?.innerText.toLowerCase() || '';
+      const city = row.cells[2]?.innerText.toLowerCase() || '';
 
-    if (name.includes(query) || address.includes(query) || city.includes(query)) {
-      row.style.display = ''; // Show row
-    } else {
-      row.style.display = 'none'; // Hide row
-    }
+      if (
+        name.includes(query) ||
+        address.includes(query) ||
+        city.includes(query)
+      ) {
+        row.style.display = ''; // Show row
+      } else {
+        row.style.display = 'none'; // Hide row
+      }
+    });
   });
-});
 
 // html funktiot
 function createRestaurantCells(restaurant, tr) {
@@ -190,7 +196,7 @@ function createTable() {
 }
 // haetaan ravintoloiden koordinaatit
 function getCoordinates(data) {
-  return data.map(item => item.location.coordinates);
+  return data.map((item) => item.location.coordinates);
 }
 
 async function main() {

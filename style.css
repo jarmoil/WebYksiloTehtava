@@ -5,11 +5,12 @@ body {
   box-sizing: border-box;
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   background: url('lib/plain-smooth-green-wall-texture.jpg') repeat;
 }
@@ -22,12 +23,12 @@ header {
   align-items: center;
 }
 
-.logo{
+.logo {
   width: 100px;
   flex: 0 0 auto;
 }
 
-.logo img{
+.logo img {
   height: 50px;
   border-radius: 15px;
 }
@@ -63,7 +64,7 @@ header {
   background-color: #005bb5;
 }
 
-nav{
+nav {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -110,7 +111,8 @@ td {
   gap: 2vw;
 }
 
-.left-side, .right-side {
+.left-side,
+.right-side {
   flex: 1;
   padding: 2vh 2vw;
   border: 1px solid #ddd;
@@ -127,7 +129,8 @@ td {
   background-color: #ffffff;
 }
 
-.left-side h2, .right-side h2 {
+.left-side h2,
+.right-side h2 {
   font-size: 35px;
   text-decoration: underline;
   margin-bottom: 15px;
@@ -154,9 +157,8 @@ td {
 }
 
 h3 {
-  font-size:xx-large;
+  font-size: xx-large;
 }
-
 
 h4 {
   font-size: 20px;
@@ -203,7 +205,8 @@ footer a:hover {
     gap: 2vh; /* Vertical spacing for stacked sections */
   }
 
-  .left-side, .right-side {
+  .left-side,
+  .right-side {
     flex: none; /* Reset flex to allow natural sizing */
     height: auto; /* Allow height to adjust naturally */
   }
@@ -240,7 +243,7 @@ footer a:hover {
   border-color: #003f7f;
 }
 
-.search-menu input[type="search"] {
+.search-menu input[type='search'] {
   width: 100%;
   padding: 10px;
   font-size: 16px;
@@ -252,7 +255,7 @@ footer a:hover {
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.search-menu input[type="search"]:focus {
+.search-menu input[type='search']:focus {
   border-color: #007bff;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
@@ -279,7 +282,6 @@ footer a:hover {
   align-items: center;
   justify-content: center;
 }
-
 
 /* Ensure modal has relative positioning for the button to align correctly */
 dialog {

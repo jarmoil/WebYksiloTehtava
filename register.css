@@ -8,7 +8,7 @@
 .container {
   padding: 16px;
 }
-section{
+section {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,12 +27,12 @@ header {
   align-items: center;
 }
 
-.logo{
+.logo {
   width: 100px;
   flex: 0 0 auto;
 }
 
-.logo img{
+.logo img {
   height: 50px;
   border-radius: 15px;
 }
@@ -48,7 +48,7 @@ header {
   text-align: center;
 }
 
-nav{
+nav {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -57,7 +57,8 @@ nav{
   justify-content: space-between;
 }
 
-input[type=text], input[type=password] {
+input[type='text'],
+input[type='password'] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -66,12 +67,15 @@ input[type=text], input[type=password] {
   background: #f1f1f1;
 }
 
-input[type=text]:focus, input[type=password]:focus {
+input[type='text']:focus,
+input[type='password']:focus {
   background-color: #ddd;
   outline: none;
 }
 
-h1, p, label{
+h1,
+p,
+label {
   color: #fff;
 }
 
@@ -81,7 +85,7 @@ hr {
 }
 
 .registerbtn {
-  background-color: #04AA6D;
+  background-color: #04aa6d;
   color: white;
   padding: 16px 20px;
   margin: 8px 0;
@@ -92,7 +96,7 @@ hr {
 }
 
 .registerbtn:hover {
-  opacity:1;
+  opacity: 1;
 }
 
 a {
@@ -103,5 +107,4 @@ a {
   background-color: #f1f1f1;
   background: transparent;
   text-align: center;
-
 }
